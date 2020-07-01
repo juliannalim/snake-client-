@@ -14,8 +14,16 @@ const connect = function() {
     console.log(data);
   });
 
-  //conn.on()
+  conn.on('connect', () => {
+    conn.write("Name: LIM")
+  })
+
+  conn.on('connect', () => {
+    console.log("connect to server");
+  })
   return conn;
+
+  
 }
 
 
