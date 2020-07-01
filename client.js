@@ -15,12 +15,22 @@ const connect = function() {
   });
 
   conn.on('connect', () => {
-    conn.write("Name: LIM")
+    conn.write("Name: LIM");
   })
+
+  // setTimeout(() => {
+  //   conn.write("Move: up"); // the thing that makes the sound
+  //   }, connect * 1000); // multipe by it 1000 b/c in ms
+  
+  // conn.on('connect', () => {
+  //   conn.write("Move: up");
+  // })
 
   conn.on('connect', () => {
     console.log("connect to server");
   })
+
+
   return conn;
 
   
