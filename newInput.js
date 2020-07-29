@@ -31,12 +31,12 @@ const handleUserInput = function (input) {
 
     case 'g':
       console.log('g press');
-      connection.write("hi");
+      connection.write("Say: Hi There");
       break;
 
     case 'h':
       console.log('h press');
-      connection.write("coo");
+      connection.write("Say: coo");
       break;
   }
 }
