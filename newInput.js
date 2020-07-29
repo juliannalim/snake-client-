@@ -1,43 +1,55 @@
-let connection;
+let connection; // undefined
 
-const setupInput = function (conn) {
+const handleUserInput = function (input) {
+
+  switch (input) {
+    case 'q':
+      console.log('quit press');
+    case '\u0003':
+      process.exit();
+      break;
+
+    case 'w':
+      console.log('w press');
+      connection.write("Move: up");
+      break;
+
+    case 'd':
+      console.log('d press');
+      connection.write("Move: right");
+      break;
+
+    case 's':
+      console.log('s press');
+      connection.write("Move: down");
+      break;
+
+    case 'a':
+      console.log('a press');
+      connection.write("Move: left");
+      break;
+
+    case 'g':
+      console.log('g press');
+      connection.write("hi");
+      break;
+
+    case 'h':
+      console.log('h press');
+      connection.write("coo");
+      break;
+  }
+}
+
+module.exports = function (conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
-
-  const handleUserInput = function (input) {
-    if (input === 'w') {
-      connection.write("Move: up");
-    }
-
-    else if (input === 's') {
-      connection.write("Move: down");
-    }
-
-    else if (input === 'd') {
-      connection.write('Move: right');
-    }
-
-    else if (input === 'a') {
-      connection.write('Move: left');
-    }
-
-    else if (input === "g") {
-      connection.write("Say: hi")
-    }
-
-    else if (input === "h") {
-      connection.write("Say: coo")
-    }
-    // control C to exit 
-    else if (input === "\u0003") {
-      process.exit()
-    }
-  }
   stdin.on('data', handleUserInput);
   return stdin;
 }
 
-module.exports = { setupInput };
+
+// module.exports = { setupInput };
