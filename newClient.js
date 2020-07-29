@@ -25,6 +25,15 @@ const connect = function () {
     conn.write('Name: bug');
   });
 
+  // conn.on('connect', () => {
+  // delay = 0;
+  //   conn.write('Move: up');
+  // setTimeout(() => {
+  //   conn.write('Move: down'), delay;
+  // }, delay += 200);
+  // conn.write('Move: left');
+  // conn.write('Move: right');
+  // })
   return conn;
 };
 
