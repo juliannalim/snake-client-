@@ -16,6 +16,15 @@ const connect = function () {
     console.log(message);
   });
 
+  conn.on('connect', function (connect) {
+    console.log('Successfully connected to game server');
+  });
+
+  conn.on('connect', function () {
+    // find a refactor this so you can input the username
+    conn.write('Name: bug');
+  });
+
   return conn;
 };
 
