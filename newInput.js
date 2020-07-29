@@ -23,6 +23,14 @@ const setupInput = function (conn) {
     else if (input === 'a') {
       connection.write('Move: left');
     }
+
+    else if (input === "g") {
+      connection.write("Say: hi")
+    }
+
+    else if (input === "h") {
+      connection.write("Say: coo")
+    }
     // control C to exit 
     else if (input === "\u0003") {
       process.exit()
